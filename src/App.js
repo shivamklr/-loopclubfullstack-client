@@ -3,7 +3,6 @@ import Form from "./components/Form"
 function App() {
     return (
         <div className="App">
-            <h1>Subscribe to the Newsletter</h1>
             <Form/>
         </div>
     );
