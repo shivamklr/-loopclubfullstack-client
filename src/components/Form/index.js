@@ -1,5 +1,6 @@
 import React, { useReducer } from "react";
 import axios from "axios";
+import reducer from "./reducer";
 function Form() {
     const [value, dispatch] = useReducer(reducer, {
         email: "",
@@ -42,11 +43,8 @@ function Form() {
                     name="email"
                     placeholder="your@email.com"
                 />
-                <button
-                    className="card__form__btn"
-                    onClick={handleSubmit}
-                >
-                    {value.loading?"Loading...":"Submit"}
+                <button className="card__form__btn" onClick={handleSubmit}>
+                    {value.loading ? "Loading..." : "Submit"}
                 </button>
             </form>
             {value.errors.length > 0 && (
@@ -61,25 +59,6 @@ function Form() {
             )}
         </div>
     );
-}
-
-function reducer(prevState, action) {
-    switch (action.type) {
-        case "LOADING":
-            return { ...prevState, loading: true, success: false };
-        case "SUCCESS":
-            return { ...prevState, success: true, loading: false, errors: [] };
-        case "UPDATE":
-            return { ...prevState, email: action.payload.data };
-        case "ERROR":
-            return {
-                ...prevState,
-                errors: [action.payload.data],
-                loading: false,
-            };
-        default:
-            return { ...prevState };
-    }
 }
 
 export default Form;
