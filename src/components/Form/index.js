@@ -14,17 +14,14 @@ function Form() {
     function handleSubmit(e) {
         e.preventDefault();
         dispatch({ type: "LOADING" });
-        console.log(`Email: ${value.email} submitted`);
         axios
             .post("http://localhost:4040/api/user", {
                 data: { email: value.email },
             })
             .then((res) => {
-                console.log({ res });
                 dispatch({ type: "SUCCESS" });
             })
             .catch((err) => {
-                console.log({ err });
                 if (err.response !== undefined)
                     dispatch({
                         type: "ERROR",
