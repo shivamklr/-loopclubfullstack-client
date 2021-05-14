@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+    @apply bg-gray-100;
+}
+.App {
+    @apply h-screen flex items-center justify-center;
+}
+.card {
+    @apply flex flex-col items-center bg-white py-6 px-6 rounded-xl max-w-min max-h-96 my-4 shadow-xl sm:rounded-3xl;
+}
+.card__h1 {
+    @apply text-2xl font-medium sm:font-bold;
+}
+.card__form {
+    @apply flex my-2 flex-col sm:flex-row;
+}
+.card__form__input {
+    @apply rounded-l p-4 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white;
+}
+.card__form__btn {
+    @apply px-8 rounded-r bg-yellow-400  text-gray-800 font-medium p-4 uppercase border-yellow-500 border-t border-b border-r sm:font-bold;
+}
+.card__span {
+    @apply flex items-center my-1 font-medium tracking-wide text-xs mt-1 ml-1;
+}
+.card__span--red {
+    @apply text-red-500;
+}
+.card__span--green {
+    @apply text-green-500;
+}
