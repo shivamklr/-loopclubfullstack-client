@@ -23,10 +23,14 @@ function Form() {
             })
             .catch((err) => {
                 if (err.response !== undefined)
-                    dispatch({
-                        type: "ERROR",
-                        payload: { data: err.response.data.errors.body[0] },
-                    });
+                // setTimeout to emulate server load times
+                // and to show UI state in the demp
+                    setTimeout(
+                        ()=>dispatch({
+                            type: "ERROR",
+                            payload: { data: err.response.data.errors.body[0] },
+                        }), 1000
+                    );
             });
     }
     return (
